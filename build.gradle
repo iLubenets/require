@@ -1,0 +1,16 @@
+group 'com.github.ilubenets'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.code.findbugs:jsr305:3.0.+'
+    testCompile 'junit:junit:4.5'
+}
