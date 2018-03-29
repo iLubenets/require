@@ -150,7 +150,7 @@ public final class Require {
         return value;
     }
 
-    public static int greaterThanZero(final int value, @Nonnull final String valueName) {
+    public static int gtThanZero(final int value, @Nonnull final String valueName) {
         if (value <= 0) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_GREATER_THAN_ZERO_FORMAT, valueName));
         }
@@ -159,14 +159,14 @@ public final class Require {
     }
 
     @Nonnull
-    public static Integer greaterThanZero(@Nullable final Integer value, @Nonnull final String valueName) {
+    public static Integer gtThanZero(@Nullable final Integer value, @Nonnull final String valueName) {
         nonNull(value, valueName);
-        greaterThanZero(value.intValue(), valueName);
+        gtThanZero(value.intValue(), valueName);
 
         return value;
     }
 
-    public static float greaterThanZero(final float value, @Nonnull final String valueName) {
+    public static float gtThanZero(final float value, @Nonnull final String valueName) {
         if (value <= 0.0F) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_GREATER_THAN_ZERO_FORMAT, valueName));
         }
@@ -175,14 +175,14 @@ public final class Require {
     }
 
     @Nonnull
-    public static Float greaterThanZero(@Nullable final Float value, @Nonnull final String valueName) {
+    public static Float gtThanZero(@Nullable final Float value, @Nonnull final String valueName) {
         nonNull(value, valueName);
-        greaterThanZero(value.floatValue(), valueName);
+        gtThanZero(value.floatValue(), valueName);
 
         return value;
     }
 
-    public static long greaterThanZero(final long value, @Nonnull final String valueName) {
+    public static long gtThanZero(final long value, @Nonnull final String valueName) {
         if (value <= 0L) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_GREATER_THAN_ZERO_FORMAT, valueName));
         }
@@ -191,9 +191,9 @@ public final class Require {
     }
 
     @Nonnull
-    public static Long greaterThanZero(@Nullable final Long value, @Nonnull final String valueName) {
+    public static Long gtThanZero(@Nullable final Long value, @Nonnull final String valueName) {
         nonNull(value, valueName);
-        greaterThanZero(value.longValue(), valueName);
+        gtThanZero(value.longValue(), valueName);
 
         return value;
     }
@@ -246,7 +246,7 @@ public final class Require {
         return value;
     }
 
-    public static int lessThanZero(final int value, @Nonnull final String valueName) {
+    public static int lsThanZero(final int value, @Nonnull final String valueName) {
         if (value >= 0) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_LESS_THAN_ZERO_FORMAT, valueName));
         }
@@ -255,14 +255,14 @@ public final class Require {
     }
 
     @Nonnull
-    public static Integer lessThanZero(@Nullable final Integer value, @Nonnull final String valueName) {
+    public static Integer lsThanZero(@Nullable final Integer value, @Nonnull final String valueName) {
         nonNull(value, valueName);
-        lessThanZero(value.intValue(), valueName);
+        lsThanZero(value.intValue(), valueName);
 
         return value;
     }
 
-    public static float lessThanZero(final float value, @Nonnull final String valueName) {
+    public static float lsThanZero(final float value, @Nonnull final String valueName) {
         if (value >= 0.0F) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_LESS_THAN_ZERO_FORMAT, valueName));
         }
@@ -271,14 +271,14 @@ public final class Require {
     }
 
     @Nonnull
-    public static Float lessThanZero(@Nullable final Float value, @Nonnull final String valueName) {
+    public static Float lsThanZero(@Nullable final Float value, @Nonnull final String valueName) {
         nonNull(value, valueName);
-        lessThanZero(value.floatValue(), valueName);
+        lsThanZero(value.floatValue(), valueName);
 
         return value;
     }
 
-    public static long lessThanZero(final long value, @Nonnull final String valueName) {
+    public static long lsThanZero(final long value, @Nonnull final String valueName) {
         if (value >= 0L) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_LESS_THAN_ZERO_FORMAT, valueName));
         }
@@ -287,9 +287,9 @@ public final class Require {
     }
 
     @Nonnull
-    public static Long lessThanZero(@Nullable final Long value, @Nonnull final String valueName) {
+    public static Long lsThanZero(@Nullable final Long value, @Nonnull final String valueName) {
         nonNull(value, valueName);
-        lessThanZero(value.longValue(), valueName);
+        lsThanZero(value.longValue(), valueName);
 
         return value;
     }
