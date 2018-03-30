@@ -34,3 +34,6 @@ hs_err_pid*
 .idea
 *.iml
 */build
+
+# Local
+local.properties
