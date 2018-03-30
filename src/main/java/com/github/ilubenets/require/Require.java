@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
  *
  * // constructor
  * public RequestId(@Nullable final String value) {
- *  this.value = Require.maxLength(value, 100, "requestId");
+ * this.value = Require.maxLength(value, 100, "requestId");
  * }
  *
  * }
@@ -124,10 +124,26 @@ public final class Require {
         final int maxLength,
         @Nonnull final String valueName
     ) {
-        nonNull(value, valueName);
-        length(value, 0, maxLength, valueName);
+        return length(value, 0, maxLength, valueName);
+    }
 
-        return value;
+    /**
+     * Check if {@param value} is not blank and has length between 1 and {@param maxLength}.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param maxLength - maximal expected value length
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return {@param value} back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static String nonBlankMaxLength(
+        @Nullable final String value,
+        final int maxLength,
+        @Nonnull final String valueName
+    ) {
+        return length(nonBlank(value, valueName), 1, maxLength, valueName);
     }
 
     /**
