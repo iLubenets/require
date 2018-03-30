@@ -2,6 +2,8 @@
 
 Lightweight assertion library with predefined messages. 
 
+[CHANGELOG.md](/CHANGELOG.md)
+
 ## Methods
 
 All methods produce exception **IllegalArgumentException** in the case if statement false.
@@ -36,5 +38,21 @@ public final class RequestId {
     public String value() {
         return value;
     }
+}
+```
+
+## Installation
+
+Library is available on [jCenter](https://bintray.com/ilubenets/maven/require).
+
+Gradle:
+
+```
+repositories {
+    maven { url "https://dl.bintray.com/ilubenets/maven" }
+}
+
+dependencies {
+    compile 'com.github.ilubenets:require:1.0'
 }
 ```
