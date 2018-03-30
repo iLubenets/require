@@ -45,7 +45,7 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @param <T> value type
+     * @param <T>       value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
@@ -262,6 +262,40 @@ public final class Require {
     public static Float positive(@Nullable final Float value, @Nonnull final String valueName) {
         nonNull(value, valueName);
         positive(value.floatValue(), valueName);
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value is positive.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    public static double positive(final double value, @Nonnull final String valueName) {
+        if (value < 0.0D) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_NOT_POSITIVE_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value is not null and positive.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static Double positive(@Nullable final Double value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+        positive(value.doubleValue(), valueName);
 
         return value;
     }

@@ -11,7 +11,7 @@ final class RequireMinLengthTest {
 
     @ParameterizedTest
     @MethodSource("validCases")
-    void length(
+    void minLength(
         final String value,
         final int minLength,
         final String valueName
@@ -22,7 +22,7 @@ final class RequireMinLengthTest {
 
     @ParameterizedTest
     @MethodSource("invalidCases")
-    void length_negative(
+    void minLength_negative(
         final String value,
         final int minLength,
         final String valueName

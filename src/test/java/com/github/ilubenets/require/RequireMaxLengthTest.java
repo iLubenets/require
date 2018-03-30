@@ -11,7 +11,7 @@ final class RequireMaxLengthTest {
 
     @ParameterizedTest
     @MethodSource("validCases")
-    void length(
+    void maxLength(
         final String value,
         final int maxLength,
         final String valueName
@@ -22,7 +22,7 @@ final class RequireMaxLengthTest {
 
     @ParameterizedTest
     @MethodSource("invalidCases")
-    void length_negative(
+    void maxLength_negative(
         final String value,
         final int maxLength,
         final String valueName

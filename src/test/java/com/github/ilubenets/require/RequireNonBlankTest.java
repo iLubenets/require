@@ -11,7 +11,7 @@ final class RequireNonBlankTest {
 
     @ParameterizedTest
     @MethodSource("validCases")
-    void nonNull(final String value, final String valueName) {
+    void nonBlank(final String value, final String valueName) {
         final Object requiredValue = Require.nonBlank(value, valueName);
         Assertions.assertEquals(requiredValue, value);
     }
