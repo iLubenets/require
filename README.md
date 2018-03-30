@@ -5,6 +5,7 @@ Lightweight assertion library with predefined messages.
 ## Methods
 
 All methods produce exception **IllegalArgumentException** in the case if statement false.
+All methods return given value back without any modifications. 
 
 | Method                    | Description                 |
 |---------------------------|-----------------------------|
