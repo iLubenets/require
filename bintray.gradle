@@ -1,0 +1,54 @@
+/**
+ * Configuration file: local.properties
+ *
+ * Required properties:
+ * - bintrayUser
+ * - bintrayApiKey
+ * - bintrayRepo
+ */
+
+final Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty('bintrayUser')
+    key = properties.getProperty('bintrayApiKey')
+    publications = ['jar']
+    publish = true
+    pkg {
+        repo = properties.getProperty('bintrayRepo')
+        name = project.name
+        userOrg = user
+        licenses = ['Apache-2.0']
+        websiteUrl = 'https://github.com/iLubenets/' + project.name
+        issueTrackerUrl = 'https://github.com/iLubenets/' + project.name + '/issues'
+        vcsUrl = 'https://github.com/iLubenets/' + project.name + '.git'
+        githubRepo = 'iLubenets/' + project.name
+        githubReleaseNotesFile = 'CHANGELOG.md'
+        labels = ['assert']
+        publicDownloadNumbers = false
+        version {
+            name = project.version
+            desc = 'Assertion lib'
+        }
+    }
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    classifier 'sources'
+}
+
+publishing {
+    publications {
+        jar(MavenPublication) {
+            from components.java
+            artifact sourceJar
+            groupId project.group
+            artifactId project.name
+            version project.version
+        }
+    }
+}
+
+bintrayUpload.dependsOn(build)
