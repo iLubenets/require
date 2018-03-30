@@ -14,7 +14,7 @@ All methods return given value back without any modifications.
 | Require.length            | Check if value is not null and has length between minLength and maxLength |
 | Require.maxLength         | Check if value is not null and has length between 0 and maxLength |
 | Require.minLength         | Check if value is not null and has length more then minLength |
-| Require.nonBlankMaxLength | Check if value is not null and has length between 1 and maxLength |
+| Require.nonBlankMaxLength | Check if value is not blank and has length between 1 and maxLength |
 | Require.format            | Check if value is not null and has match regexp pattern format |
 | Require.positive          | Check if numeric value is not null and positive |
 | Require.negative          | Check if numeric value is not null and negative |
