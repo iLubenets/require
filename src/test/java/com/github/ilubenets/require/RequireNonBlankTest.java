@@ -2,45 +2,41 @@ package com.github.ilubenets.require;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.stream.Stream;
 
 final class RequireNonBlankTest {
 
     @ParameterizedTest
-    @MethodSource("nonBlankValues")
-    void nonNull(final Object value) {
-        final Object requiredValue = Require.nonNull(value, String.valueOf(value));
+    @MethodSource("validCases")
+    void nonNull(final String value, final String valueName) {
+        final Object requiredValue = Require.nonBlank(value, valueName);
         Assertions.assertEquals(requiredValue, value);
     }
 
     @ParameterizedTest
-    @MethodSource("blankValues")
-    void nonBlank_negative(final String value) {
+    @MethodSource("invalidCases")
+    void nonBlank_negative(final String value, final String valueName) {
         Assertions.assertThrows(
             IllegalArgumentException.class,
-            () -> Require.nonBlank(value, "NonBlank")
+            () -> Require.nonBlank(value, valueName)
         );
     }
 
-    static List<Object> nonBlankValues() {
-        final List<Object> testValues = new ArrayList<>();
-        testValues.add(10);
-        testValues.add(0);
-        testValues.add(-1.0);
-        testValues.add("a");
-        testValues.add("NonBlank");
-
-        return testValues;
+    private static Stream<Arguments> validCases() {
+        return Stream.of(
+            Arguments.of("non blank", "non blank"),
+            Arguments.of("a", "1 char"),
+            Arguments.of("      a     ", "1 char with whitespaces")
+        );
     }
 
-    static List<String> blankValues() {
-        final List<String> testValues = new ArrayList<>();
-        testValues.add("     ");
-        testValues.add("");
-
-        return testValues;
+    private static Stream<Arguments> invalidCases() {
+        return Stream.of(
+            Arguments.of("     ", "only whitespaces"),
+            Arguments.of("", "empty")
+        );
     }
 }
