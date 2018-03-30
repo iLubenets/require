@@ -29,7 +29,7 @@ bintray {
         publicDownloadNumbers = false
         version {
             name = project.version
-            desc = 'Assertion lib'
+            desc = 'Lightweight assertion library with predefined messages'
         }
     }
 }
@@ -39,11 +39,17 @@ task sourceJar(type: Jar) {
     classifier 'sources'
 }
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
 publishing {
     publications {
         jar(MavenPublication) {
             from components.java
             artifact sourceJar
+            artifact javadocJar
             groupId project.group
             artifactId project.name
             version project.version

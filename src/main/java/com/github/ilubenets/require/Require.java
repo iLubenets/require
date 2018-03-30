@@ -40,12 +40,13 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not null.
+     * Check if value is not null.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @param <T> value type
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -58,12 +59,12 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not null and not blank, contains any character different from whitespace.
+     * Check if value is not null and not blank, contains any character different from whitespace.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -79,14 +80,14 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not null and has length between {@param minLength} and {@param maxLength}.
+     * Check if value is not null and has length between minLength and maxLength.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param minLength - minimal expected value length
      * @param maxLength - maximal expected value length
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -109,13 +110,13 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not null and has length between 0 and {@param maxLength}.
+     * Check if value is not null and has length between 0 and maxLength.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param maxLength - maximal expected value length
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -128,13 +129,13 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not blank and has length between 1 and {@param maxLength}.
+     * Check if value is not blank and has length between 1 and maxLength.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param maxLength - maximal expected value length
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -147,13 +148,13 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not null and has length more then {@param minLength}.
+     * Check if value is not null and has length more then minLength.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param minLength - minimal expected value length
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -173,13 +174,13 @@ public final class Require {
     }
 
     /**
-     * Check if {@param value} is not null and has match regexp pattern format.
+     * Check if value is not null and has match regexp pattern format.
      * If not throw an exception.
      *
      * @param value         - value to check
      * @param formatPattern - regexp format
      * @param valueName     - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -198,12 +199,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is positive.
+     * Check if numeric value is positive.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static int positive(final int value, @Nonnull final String valueName) {
@@ -215,12 +216,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and positive.
+     * Check if numeric value is not null and positive.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -232,12 +233,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is positive.
+     * Check if numeric value is positive.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static float positive(final float value, @Nonnull final String valueName) {
@@ -249,12 +250,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and positive.
+     * Check if numeric value is not null and positive.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -266,12 +267,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is positive.
+     * Check if numeric value is positive.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static long positive(final long value, @Nonnull final String valueName) {
@@ -283,12 +284,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and positive.
+     * Check if numeric value is not null and positive.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -300,12 +301,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is negative.
+     * Check if numeric value is negative.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static int negative(final int value, @Nonnull final String valueName) {
@@ -317,12 +318,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and negative.
+     * Check if numeric value is not null and negative.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -334,12 +335,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is negative.
+     * Check if numeric value is negative.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static float negative(final float value, @Nonnull final String valueName) {
@@ -351,12 +352,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and negative.
+     * Check if numeric value is not null and negative.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -368,12 +369,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is negative.
+     * Check if numeric value is negative.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static long negative(final long value, @Nonnull final String valueName) {
@@ -385,12 +386,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and negative.
+     * Check if numeric value is not null and negative.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -402,12 +403,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} grate than 0.
+     * Check if numeric value grate than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static int gtThanZero(final int value, @Nonnull final String valueName) {
@@ -419,12 +420,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and grate than 0.
+     * Check if numeric value is not null and grate than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -436,12 +437,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} grate than 0.
+     * Check if numeric value grate than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static float gtThanZero(final float value, @Nonnull final String valueName) {
@@ -453,12 +454,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and grate than 0.
+     * Check if numeric value is not null and grate than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -470,12 +471,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} grate than 0.
+     * Check if numeric value grate than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static long gtThanZero(final long value, @Nonnull final String valueName) {
@@ -487,12 +488,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and grate than 0.
+     * Check if numeric value is not null and grate than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -504,12 +505,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} less than 0.
+     * Check if numeric value less than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static int lsThanZero(final int value, @Nonnull final String valueName) {
@@ -521,12 +522,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and less than 0.
+     * Check if numeric value is not null and less than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -538,12 +539,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} less than 0.
+     * Check if numeric value less than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static float lsThanZero(final float value, @Nonnull final String valueName) {
@@ -555,12 +556,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and less than 0.
+     * Check if numeric value is not null and less than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
@@ -572,12 +573,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} less than 0.
+     * Check if numeric value less than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     public static long lsThanZero(final long value, @Nonnull final String valueName) {
@@ -589,12 +590,12 @@ public final class Require {
     }
 
     /**
-     * Check if numeric {@param value} is not null and less than 0.
+     * Check if numeric value is not null and less than 0.
      * If not throw an exception.
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @return {@param value} back to client
+     * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
