@@ -1,5 +1,7 @@
 package com.github.ilubenets.require;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.annotation.Nonnull;
@@ -27,6 +29,7 @@ public final class Require {
 
     private final static String VALUE_IS_NULL_FORMAT = "The value of [%s] must not be null.";
     private final static String VALUE_IS_BLANK_FORMAT = "The value of [%s] must not be blank.";
+    private final static String VALUE_IS_EMPTY_FORMAT = "The value of [%s] must not be empty.";
     private final static String VALUE_HAS_WRONG_FORMAT_FORMAT = "The value of [%s] has invalid format.";
     private final static String VALUE_HAS_WRONG_LENGTH_FORMAT = "The length of [%s] must be between %d-%d.";
     private final static String VALUE_HAS_WRONG_MIN_LENGTH_FORMAT = "The length of [%s] must at least %d.";
@@ -72,8 +75,68 @@ public final class Require {
         nonNull(value, valueName);
 
         final String valueWithoutWhitespaces = value.trim();
-        if (valueWithoutWhitespaces.length() == 0) {
+        if (valueWithoutWhitespaces.isEmpty()) {
             throw new IllegalArgumentException(String.format(VALUE_IS_BLANK_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if value is not null and not empty, contains any character including whitespaces.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static String nonEmpty(@Nullable final String value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.isEmpty()) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if collection is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static <T extends Collection> T nonEmpty(@Nullable final T value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.isEmpty()) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if map is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static <T extends Map> T nonEmpty(@Nullable final T value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.isEmpty()) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
         }
 
         return value;
