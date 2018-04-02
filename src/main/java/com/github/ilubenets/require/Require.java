@@ -411,6 +411,40 @@ public final class Require {
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
+    public static double negative(final double value, @Nonnull final String valueName) {
+        if (value > 0.0D) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_NOT_NEGATIVE_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value is not null and negative.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static Double negative(@Nullable final Double value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+        negative(value.doubleValue(), valueName);
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value is negative.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
     public static long negative(final long value, @Nonnull final String valueName) {
         if (value > 0L) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_NEGATIVE_FORMAT, valueName));
