@@ -547,6 +547,40 @@ public final class Require {
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
+    public static double gtThanZero(final double value, @Nonnull final String valueName) {
+        if (value <= 0.0D) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_NOT_GREATER_THAN_ZERO_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value is not null and grate than 0.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static Double gtThanZero(@Nullable final Double value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+        gtThanZero(value.doubleValue(), valueName);
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value grate than 0.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
     public static long gtThanZero(final long value, @Nonnull final String valueName) {
         if (value <= 0L) {
             throw new IllegalArgumentException(String.format(VALUE_IS_NOT_GREATER_THAN_ZERO_FORMAT, valueName));
@@ -636,6 +670,40 @@ public final class Require {
     public static Float lsThanZero(@Nullable final Float value, @Nonnull final String valueName) {
         nonNull(value, valueName);
         lsThanZero(value.floatValue(), valueName);
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value less than 0.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    public static double lsThanZero(final double value, @Nonnull final String valueName) {
+        if (value >= 0.0D) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_NOT_LESS_THAN_ZERO_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if numeric value is not null and less than 0.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static Double lsThanZero(@Nullable final Double value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+        lsThanZero(value.doubleValue(), valueName);
 
         return value;
     }
