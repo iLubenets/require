@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  *
  * // constructor
  * public RequestId(@Nullable final String value) {
- *    this.value = Require.maxLength(value, 100, "requestId");
+ * this.value = Require.maxLength(value, 100, "requestId");
  * }
  *
  * }
@@ -49,7 +49,7 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
-     * @param <T>       value type
+     * @param <T>       - value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
@@ -109,6 +109,7 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
+     * @param <T>       - value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
@@ -129,6 +130,7 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
+     * @param <T>       - value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
@@ -149,6 +151,7 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
+     * @param <T>       - value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
@@ -169,6 +172,7 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
+     * @param <T>       - value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
