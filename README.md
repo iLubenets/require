@@ -13,6 +13,7 @@ All methods return given value back without any modifications.
 |---------------------------|-----------------------------|
 | Require.nonNull           | Check if value is not null. |
 | Require.nonBlank          | Check if value is not null and not blank, contains any character different from whitespace |
+| Require.nonEmpty          | Check if string or collection is not null and not empty |
 | Require.length            | Check if value is not null and has length between minLength and maxLength |
 | Require.maxLength         | Check if value is not null and has length between 0 and maxLength |
 | Require.minLength         | Check if value is not null and has length more then minLength |
@@ -53,6 +54,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.ilubenets:require:1.0'
+    compile 'com.github.ilubenets:require:1.2'
 }
 ```

@@ -1,6 +1,7 @@
 package com.github.ilubenets.require;
 
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -20,7 +21,7 @@ import javax.annotation.Nullable;
  *
  * // constructor
  * public RequestId(@Nullable final String value) {
- * this.value = Require.maxLength(value, 100, "requestId");
+ *    this.value = Require.maxLength(value, 100, "requestId");
  * }
  *
  * }
@@ -136,6 +137,126 @@ public final class Require {
         nonNull(value, valueName);
 
         if (value.isEmpty()) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if enumeration is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static <T extends Enumeration> T nonEmpty(@Nullable final T value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (!value.hasMoreElements()) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if objects array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static <T> T[] nonEmpty(@Nullable final T[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if scalar array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static int[] nonEmpty(@Nullable final int[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if scalar array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static long[] nonEmpty(@Nullable final long[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if scalar array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static float[] nonEmpty(@Nullable final float[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if scalar array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static double[] nonEmpty(@Nullable final double[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
             throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
         }
 

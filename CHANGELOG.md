@@ -6,3 +6,7 @@ v1.1 (02.04.18)
 
 - numeric checks extended with cases for double type
 - unit test coverage for all methods
+
+v1.2 (04.04.18)
+
+- add nonEmpty checks for string and collections

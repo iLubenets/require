@@ -7,13 +7,12 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Stream;
 
 final class RequireNonEmptyTest {
@@ -27,23 +26,62 @@ final class RequireNonEmptyTest {
 
     @Test
     void nonEmpty_collection() {
-        final List<Integer> list = new ArrayList<>();
-        list.add(1);
-        final List<Integer> requiredList = Require.nonEmpty(list, "list");
-        Assertions.assertIterableEquals(requiredList, list);
+        final Collection<Integer> collection = Collections.singletonList(1);
+        final Collection<Integer> requiredCollection = Require.nonEmpty(collection, "collection");
+        Assertions.assertIterableEquals(requiredCollection, collection);
 
-        final Set<String> set = new HashSet<>();
-        set.add("SET");
-        final Set<String> requiredSet = Require.nonEmpty(set, "set");
-        Assertions.assertIterableEquals(requiredSet, set);
+        final List<String> list = Collections.singletonList("test");
+        final List<String> requiredList = Require.nonEmpty(list, "list");
+        Assertions.assertIterableEquals(requiredList, list);
     }
 
     @Test
     void nonEmpty_map() {
-        final Map<Integer, String> map = new HashMap<>();
-        map.put(10, "Test");
+        final Map<Integer, String> map = Collections.singletonMap(10, "Test");
         final Map<Integer, String> requiredList = Require.nonEmpty(map, "map");
         Assertions.assertEquals(requiredList, map);
+    }
+
+    @Test
+    void nonEmpty_enumeration() {
+        final Enumeration enumeration = Collections.enumeration(Collections.singletonList("test"));
+        final Enumeration requiredEnumeration = Require.nonEmpty(enumeration, "enumeration");
+        Assertions.assertEquals(requiredEnumeration, enumeration);
+    }
+
+    @Test
+    void nonEmpty_object_array() {
+        final Integer[] array = new Integer[1];
+        final Integer[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
+    }
+
+    @Test
+    void nonEmpty_int_array() {
+        final int[] array = new int[1];
+        final int[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
+    }
+
+    @Test
+    void nonEmpty_long_array() {
+        final long[] array = new long[1];
+        final long[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
+    }
+
+    @Test
+    void nonEmpty_float_array() {
+        final float[] array = new float[1];
+        final float[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
+    }
+
+    @Test
+    void nonEmpty_double_array() {
+        final double[] array = new double[1];
+        final double[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
     }
 
     @ParameterizedTest
@@ -54,18 +92,64 @@ final class RequireNonEmptyTest {
 
     @Test
     void nonEmpty_collection_negative() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new HashSet(), "HashSet"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new ArrayList(), "ArrayList"));
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new LinkedList(), "LinkedList"));
+        final Collection<Integer> collection = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(collection, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new ArrayList(), "empty"));
     }
 
     @Test
     void nonEmpty_map_negative() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new HashMap(), "HashMap"));
+        final Map<Integer, String> map = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(map, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new HashMap(), "empty"));
+    }
+
+    @Test
+    void nonEmpty_enumeration_negative() {
+        final Enumeration enumeration = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(enumeration, "null"));
         Assertions.assertThrows(
             IllegalArgumentException.class,
-            () -> Require.nonEmpty(new LinkedHashMap(), "LinkedHashMap")
+            () -> Require.nonEmpty(Collections.emptyEnumeration(), "empty")
         );
+    }
+
+    @Test
+    void nonEmpty_object_array_negative() {
+        final Integer[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(
+            IllegalArgumentException.class,
+            () -> Require.nonEmpty(new Integer[0], "LinkedHashMap")
+        );
+    }
+
+    @Test
+    void nonEmpty_int_array_negative() {
+        final int[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new int[0], "empty"));
+    }
+
+    @Test
+    void nonEmpty_long_array_negative() {
+        final long[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new long[0], "empty"));
+    }
+
+    @Test
+    void nonEmpty_float_array_negative() {
+        final float[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new float[0], "empty"));
+    }
+
+    @Test
+    void nonEmpty_double_array_negative() {
+        final double[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new double[0], "empty"));
     }
 
     private static Stream<Arguments> stringValidCases() {
