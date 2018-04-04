@@ -10,3 +10,8 @@ v1.1 (02.04.18)
 v1.2 (04.04.18)
 
 - add nonEmpty checks for string and collections
+
+v1.3 (04.04.18)
+
+- add nonEmpty checks for char[], byte[]
+- nonEmpty change String to CharSequence

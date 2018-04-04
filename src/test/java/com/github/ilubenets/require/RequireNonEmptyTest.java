@@ -11,8 +11,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Stream;
 
 final class RequireNonEmptyTest {
@@ -33,6 +35,11 @@ final class RequireNonEmptyTest {
         final List<String> list = Collections.singletonList("test");
         final List<String> requiredList = Require.nonEmpty(list, "list");
         Assertions.assertIterableEquals(requiredList, list);
+
+        final Set<String> set = new HashSet<>();
+        set.add("TEST");
+        final Set<String> requiredSet = Require.nonEmpty(set, "set");
+        Assertions.assertIterableEquals(requiredSet, set);
     }
 
     @Test
@@ -53,6 +60,20 @@ final class RequireNonEmptyTest {
     void nonEmpty_object_array() {
         final Integer[] array = new Integer[1];
         final Integer[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
+    }
+
+    @Test
+    void nonEmpty_char_array() {
+        final char[] array = new char[1];
+        final char[] requiredArray = Require.nonEmpty(array, "array");
+        Assertions.assertEquals(requiredArray, array);
+    }
+
+    @Test
+    void nonEmpty_byte_array() {
+        final byte[] array = new byte[1];
+        final byte[] requiredArray = Require.nonEmpty(array, "array");
         Assertions.assertEquals(requiredArray, array);
     }
 
@@ -122,6 +143,20 @@ final class RequireNonEmptyTest {
             IllegalArgumentException.class,
             () -> Require.nonEmpty(new Integer[0], "LinkedHashMap")
         );
+    }
+
+    @Test
+    void nonEmpty_char_array_negative() {
+        final char[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new char[0], "empty"));
+    }
+
+    @Test
+    void nonEmpty_byte_array_negative() {
+        final byte[] array = null;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(array, "null"));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Require.nonEmpty(new byte[0], "empty"));
     }
 
     @Test

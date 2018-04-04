@@ -89,14 +89,15 @@ public final class Require {
      *
      * @param value     - value to check
      * @param valueName - value parameter name which will be printed in the error message
+     * @param <T>       - value type
      * @return value back to client
      * @throws IllegalArgumentException if statement false
      */
     @Nonnull
-    public static String nonEmpty(@Nullable final String value, @Nonnull final String valueName) {
+    public static <T extends CharSequence> T nonEmpty(@Nullable final T value, @Nonnull final String valueName) {
         nonNull(value, valueName);
 
-        if (value.isEmpty()) {
+        if (value.length() == 0) {
             throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
         }
 
@@ -178,6 +179,46 @@ public final class Require {
      */
     @Nonnull
     public static <T> T[] nonEmpty(@Nullable final T[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if scalar array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static char[] nonEmpty(@Nullable final char[] value, @Nonnull final String valueName) {
+        nonNull(value, valueName);
+
+        if (value.length == 0) {
+            throw new IllegalArgumentException(String.format(VALUE_IS_EMPTY_FORMAT, valueName));
+        }
+
+        return value;
+    }
+
+    /**
+     * Check if scalar array is not null and not empty.
+     * If not throw an exception.
+     *
+     * @param value     - value to check
+     * @param valueName - value parameter name which will be printed in the error message
+     * @return value back to client
+     * @throws IllegalArgumentException if statement false
+     */
+    @Nonnull
+    public static byte[] nonEmpty(@Nullable final byte[] value, @Nonnull final String valueName) {
         nonNull(value, valueName);
 
         if (value.length == 0) {
