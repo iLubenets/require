@@ -1,13 +1,13 @@
 # require
 
-Lightweight assertion library with predefined messages. 
+Lightweight assertion library with predefined messages.
 
 [CHANGELOG.md](/CHANGELOG.md)
 
 ## Methods
 
-All methods produce exception **IllegalArgumentException** in the case if statement false.
-All methods return given value back without any modifications. 
+All methods produce exception **IllegalArgumentException** in the case if statement false. All methods return given
+value back without any modifications.
 
 | Method                    | Description                 |
 |---------------------------|-----------------------------|
@@ -57,3 +57,10 @@ dependencies {
     compile 'com.github.ilubenets:require:1.2'
 }
 ```
+
+## Publish to MavenCentral
+
+- check staging repository: [oss.sonatype.org](https://oss.sonatype.org/#stagingRepositories)
+- `./gradlew clean build uploadArchives` - upload archives to nexus staging
+- `./gradlew closeAndReleaseRepository` – closes and releases a repository (an equivalent to closeRepository and then
+  releaseRepository)
