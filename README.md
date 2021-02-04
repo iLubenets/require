@@ -42,25 +42,24 @@ public final class RequestId {
 }
 ```
 
-## Installation
+## Usage
 
-Library is available on [jCenter](https://bintray.com/ilubenets/maven/require).
+Library is available on [MavenCentral](https://search.maven.org/artifact/com.github.ilubenets/require).
 
-Gradle:
+Apache Maven:
 
 ```
-repositories {
-    maven { url "https://dl.bintray.com/ilubenets/maven" }
-}
+<dependency>
+  <groupId>com.github.ilubenets</groupId>
+  <artifactId>require</artifactId>
+  <version>1.3</version>
+</dependency>
+```
 
+Gradle Groovy DSL:
+
+```
 dependencies {
-    compile 'com.github.ilubenets:require:1.2'
+    implementation 'com.github.ilubenets:require:1.3'
 }
 ```
-
-## Publish to MavenCentral
-
-- check staging repository: [oss.sonatype.org](https://oss.sonatype.org/#stagingRepositories)
-- `./gradlew clean build uploadArchives` - upload archives to nexus staging
-- `./gradlew closeAndReleaseRepository` – closes and releases a repository (an equivalent to closeRepository and then
-  releaseRepository)
