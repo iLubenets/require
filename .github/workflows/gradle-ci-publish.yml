@@ -24,4 +24,4 @@ jobs:
           echo '${{secrets.GPG_KEY_CONTENTS}}' | base64 -d > encryoted_key.gpg
           gpg --quiet --batch --yes --decrypt --passphrase="${{secrets.SECRET_PASSPHRASE}}" --output key.gpg encryoted_key.gpg
       - name: Publish
-        run: ./gradlew build publish -Psigning.secretKeyRingFile=key.gpg -Psigning.keyId=${{secrets.SIGNING_KEYID}} -Psigning.password=${{secrets.SIGNING_PASSWORD}} -PossrhUsername=${{secrets.SONATYPE_USERNAME}} -PossrhPassword=${{secrets.SONATYPE_PASSWORD}} -PreleaseVersion=${{GITHUB_REF:11}} -Dhttp.socketTimeout=300000 -Dhttp.connectionTimeout=300000
+        run: ./gradlew build publish -Psigning.secretKeyRingFile=key.gpg -Psigning.keyId=${{secrets.SIGNING_KEYID}} -Psigning.password=${{secrets.SIGNING_PASSWORD}} -PossrhUsername=${{secrets.SONATYPE_USERNAME}} -PossrhPassword=${{secrets.SONATYPE_PASSWORD}} -PreleaseVersion=${GITHUB_REF:11} -Dhttp.socketTimeout=300000 -Dhttp.connectionTimeout=300000
