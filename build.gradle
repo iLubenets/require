@@ -7,7 +7,7 @@ plugins {
 
 archivesBaseName = 'require'
 group = 'com.github.ilubenets'
-version = '1.3'
+version = project.hasProperty('releaseVersion') ? releaseVersion : '0.1-local'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
