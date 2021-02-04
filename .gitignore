@@ -36,4 +36,5 @@ hs_err_pid*
 */build
 
 # Local
-local.properties
+gradle.properties
+secret-keys.gpg
